@@ -1,7 +1,7 @@
 Dockerized IQFeed client with X11VNC for remote viewing
 =======================
 
-[![CircleCI](https://circleci.com/gh/jaikumarm/docker-iqfeed.svg?style=svg)](https://circleci.com/gh/jaikumarm/docker-iqfeed)
+[![CircleCI](https://circleci.com/gh/kvokka/docker-iqfeed.svg?style=svg)](https://circleci.com/gh/kvokka/docker-iqfeed)
 
 **Minimalistic setup is in the branch `minimal`, probably you are here for it.**
 
@@ -11,7 +11,7 @@ Usage
 -----
 Clone this repository and build the image:
 ```
-git clone https://github.com/jaikumarm/iqfeed-docker.git
+git clone https://github.com/kvokka/iqfeed-docker.git
 cd iqfeed-docker
 docker build . -t iqfeed-docker
 ```
@@ -33,7 +33,7 @@ docker run -e IQFEED_LOGIN=CHANGEME \
     -p 5009:5010 -p 9101:9100 -p 9201:9200 -p 9301:9300 -p 9401:9400\
     -p 5901:5901 -p 8088:8088 \
     -v /var/log/iqfeed:/root/DTN/IQFeed \
-    -d jaikumarm/iqfeed:v61020-w5
+    -d kvokka/iqfeed
 ```
 
 With `docker-compose` edit the docker-compose.yml with your iqfeed credentials, then run
