@@ -1,7 +1,7 @@
 version: '3.4'
 services:
   iqfeed:
-    image: jaikumarm/iqfeed:v61020-w5
+    image: kvokka/iqfeed
     container_name: iqfeed
     ports:
      - "5009:5009"
@@ -12,7 +12,6 @@ services:
      - "8088:8080"
      - "5901:5900"
     environment:
-      IQFEED_PRODUCT_ID: "CHANGEME"
       IQFEED_LOGIN: "CHANGEME"
       IQFEED_PASSWORD: "CHANGEME"
     volumes:
@@ -33,4 +32,4 @@ services:
       AUTOHEAL_CONTAINER_LABEL: all
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    hostname: autoheal      
+    hostname: autoheal
