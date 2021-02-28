@@ -3,6 +3,8 @@ Dockerized IQFeed client with X11VNC for remote viewing
 
 [![CircleCI](https://circleci.com/gh/jaikumarm/docker-iqfeed.svg?style=svg)](https://circleci.com/gh/jaikumarm/docker-iqfeed)
 
+**Minimalistic setup is in the branch `minimal`, probably you are here for it.**
+
 See [CHANGELOG](./CHANGELOG.md) for a list of notable changes
 
 Usage
