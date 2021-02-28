@@ -12,7 +12,6 @@ services:
      - "8088:8080"
      - "5901:5900"
     environment:
-      IQFEED_PRODUCT_ID: "CHANGEME"
       IQFEED_LOGIN: "CHANGEME"
       IQFEED_PASSWORD: "CHANGEME"
     volumes:
@@ -33,4 +32,4 @@ services:
       AUTOHEAL_CONTAINER_LABEL: all
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    hostname: autoheal      
+    hostname: autoheal

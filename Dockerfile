@@ -15,6 +15,9 @@ ENV DISPLAY :0
 ENV IQFEED_INSTALLER_BIN="iqfeed_client_6_1_0_20.exe"
 ENV IQFEED_LOG_LEVEL 0xB222
 
+# This is just the value which sutisfy iqfeed client
+ENV IQFEED_PRODUCT_ID MATLAB_1694
+
 ENV WINEDEBUG -all
 
 ADD sources.list /etc/apt/sources.list
