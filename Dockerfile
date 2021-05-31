@@ -1,4 +1,4 @@
-FROM ubuntu:eoan
+FROM ubuntu:focal
 
 WORKDIR /root/
 ENV HOME /root
@@ -20,14 +20,12 @@ ENV IQFEED_PRODUCT_ID MATLAB_1694
 
 ENV WINEDEBUG -all
 
-ADD sources.list /etc/apt/sources.list
-
 RUN dpkg --add-architecture i386 && \
     apt-get update && apt-get upgrade -yq && \
     apt-get install -yq --no-install-recommends \
     software-properties-common apt-utils supervisor xvfb wget tar gpg-agent bbe netcat-openbsd net-tools && \
     wget -O - https://dl.winehq.org/wine-builds/winehq.key | apt-key add - && \
-    echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ eoan main' |tee /etc/apt/sources.list.d/winehq.list && \
+    echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' |tee /etc/apt/sources.list.d/winehq.list && \
     apt-get update && apt-get install -yq --no-install-recommends winehq-stable winbind winetricks cabextract && \
     mkdir /opt/wine-stable/share/wine/mono && \
     wget -O - https://dl.winehq.org/wine/wine-mono/4.9.4/wine-mono-bin-4.9.4.tar.gz |tar -xzv -C /opt/wine-stable/share/wine/mono && \
@@ -61,7 +59,6 @@ RUN \
     # 'hack' to allow the client to listen on other interfaces
     bbe -e 's/127.0.0.1/000.0.0.0/g' "/root/prefix32/drive_c/Program Files/DTN/IQFeed/iqconnect.exe" > "/root/prefix32/drive_c/Program Files/DTN/IQFeed/iqconnect_patched.exe" &&\
     rm -rf /root/prefix32/.cache /var/lib/apt/lists/* $HOME/prefix32/drive_c/iqfeed_install.exe
-
 
 ADD launch_iqfeed.py /root/launch_iqfeed.py
 ADD pyiqfeed_admin_conn.py /root/pyiqfeed_admin_conn.py

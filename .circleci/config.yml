@@ -1,11 +1,7 @@
-version: 2
+version: 2.1
 jobs:
   build:
     machine: true
-
-    branches:
-      ignore:
-        - dev
 
     steps:
       - checkout
@@ -17,5 +13,13 @@ jobs:
           set -x
           sh +x -c 'echo $DOCKER_PASS' | docker login -u=$DOCKER_USER --password-stdin
           docker push kvokka/iqfeed:$CIRCLE_SHA1
+          ([[ "$CIRCLE_BRANCH" == "master" ]] && \
           docker tag kvokka/iqfeed:$CIRCLE_SHA1 kvokka/iqfeed:latest
           docker push kvokka/iqfeed:latest
+          ) || exit 0
+
+workflows:
+  version: 2
+  pipeline:
+    jobs:
+      - build
