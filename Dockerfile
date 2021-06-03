@@ -12,7 +12,7 @@ ENV WINEPREFIX /root/prefix32
 ENV WINEARCH win32
 ENV DISPLAY :0
 
-ENV IQFEED_INSTALLER_BIN="iqfeed_client_6_1_0_20.exe"
+ENV IQFEED_INSTALLER_BIN="iqfeed_client_6_2_0_16.exe"
 ENV IQFEED_LOG_LEVEL 0xB222
 
 # This is just the value which sutisfy iqfeed client
